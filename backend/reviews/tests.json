@@ -1,0 +1,33 @@
+{
+  "tests": [
+    {
+      "name": "Get reviews list",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "reviews": "array"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Create new review",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "username": "TestUser",
+        "rating": 5,
+        "comment": "Great service!"
+      },
+      "expectedStatus": 201,
+      "expectedBody": {
+        "success": true,
+        "review": {
+          "username": "TestUser",
+          "rating": 5
+        }
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
